@@ -19,6 +19,7 @@ def main():
     ret = switch.read_slide_switch()
 
     # Switch in left position -> LED blinking, 5Hz
+    '''
     if ret == 1:
         while ret == 1:
             blink_led(0.1)
@@ -30,6 +31,22 @@ def main():
         while (currentTime - startTime) < 5:
             blink_led(0.05)
             currentTime = time.time()
+
+        return 
+    '''
+    
+    while ret == 1:
+        blink_led(0.1)
+
+    if ret != 1:
+        # Switch in right positon -> LED blinking, 10Hz
+        currentTime = time.time()
+        startTime = currentTime
+        while (currentTime - startTime) < 5:
+            blink_led(0.05)
+            currentTime = time.time()
+
+        return
 
 
 # Main entry point
